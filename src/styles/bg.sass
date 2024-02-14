@@ -1,0 +1,19 @@
+@import _lib
+@function player($d)
+    @return url("/src/assets/img/bg/#{$d}d.png") no-repeat center bottom calc(var(--e) * #{$d * 100}vh - 0.6px)
+
+body
+    --e: 1
+    background: player(1),player(2),player(3),player(4),linear-gradient(#7eabfe, #bfd6ff)
+    background-size: cover
+    background-attachment: fixed
+    @extend .pixel
+    
+body>section
+    filter: brightness(calc(0.9 - var(--e)))
+    transition: filter 1600ms ease-in-out
+//   background-position: fi
+body.loaded
+    // transition: background 1456ms cubic-bezier(.77,0,.18,1)
+    transition: background 1456ms cubic-bezier(.77,0,.18,1)
+    --e: 0
