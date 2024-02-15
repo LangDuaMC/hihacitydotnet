@@ -10,6 +10,7 @@ const k = (function anyDispatchInit() {
       (function OnlyProduction() {
         const { trackPageview, trackEvent } = Plausible({
           domain: config.hostname,
+          ...config.plausible
         });
         trackPageview();
         events.TrackedMouseDispatch = function TrackedMouseDispatch(
