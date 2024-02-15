@@ -1,0 +1,21 @@
+$dep: 6px
+
+.pixel
+    image-rendering: pixelated
+
+@mixin inp()
+    border: none!important
+    outline: none
+
+@mixin stlc($c, $o)
+    $shd: scale-color($c, $lightness: -20%, $saturation: -10%)
+    box-shadow: 0 $dep $shd
+    transform: translateY(-#{$dep - $dep * $o})
+    background-color: $c
+    &:is(button):active
+        box-shadow: 0 0 $shd
+        transform: translateY(#{0px + $dep * $o})
+
+.flexv
+    display: flex
+    align-items: center
