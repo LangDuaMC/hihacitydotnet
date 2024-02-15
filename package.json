@@ -8,12 +8,21 @@
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
+  "cdnDependencies": [
+    "plausible-tracker"
+  ],
   "devDependencies": {
+    "@types/node": "^20.11.19",
     "@vituum/vite-plugin-pug": "^1.1.0",
     "prettier": "^3.2.5",
+    "rollup": "^4.11.0",
     "sass": "^1.70.0",
     "typescript": "^5.2.2",
     "vite": "^5.1.0",
+    "vite-plugin-compression2": "^0.12.0",
     "vituum": "^1.1.0"
+  },
+  "dependencies": {
+    "plausible-tracker": "^0.3.8"
   }
 }

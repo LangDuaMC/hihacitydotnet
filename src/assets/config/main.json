@@ -1,0 +1,11 @@
+{
+  "hostname": "hihacity.net",
+  "anim": [
+    {
+      "Sheet": [0, 0.0004],
+      "Sheet.Threshold": 1366,
+      "Sheet.ApplyTarget": "document_body",
+      "Sheet.ApplyAttribute": "e"
+    }
+  ]
+}

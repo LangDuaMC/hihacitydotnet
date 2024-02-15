@@ -1,16 +1,20 @@
 import "./styles/main.sass";
+import config from "./core/config";
+import { LoadAnimation } from "./core/animator";
+/*!
+ * -= hihacity website =-
+ *
+ * Damn I spent a lot of time to cook the effect
+ *
+ * @author stdpi
+ */
+
 // import "./styles/bg.sass"
 // import "./styles/pages.sass"
 
-window.addEventListener("load", function () {
+window.addEventListener("load", async function OnClientLoaded() {
   this.setTimeout(() => {
-    document.body.className += "loaded";
-    let state = false;
-    this.setInterval(() => {
-      state
-        ? this.document.body.style.setProperty("--e", "0")
-        : this.document.body.style.setProperty("--e", "0.0004");
-      state = !state;
-    }, 1500);
+    LoadAnimation(config.anim);
   }, 100);
+  await import("./core/client.lazy");
 });

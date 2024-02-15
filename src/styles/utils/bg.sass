@@ -1,7 +1,7 @@
 @import _lib
 
 @function layer($d)
-    @return url("../assets/img/bg/#{$d}d.png") no-repeat center bottom calc(var(--e) * -#{$d * 100}vh + 0.6px)
+    @return url("../assets/img/bg/atl-#{$d - 1}.png") no-repeat center bottom calc(var(--e) * -#{$d * 100}vh + 0.6px)
 
 @function layers()
     $l: null
@@ -20,7 +20,7 @@ body>section
     filter: brightness(calc(0.9 - var(--e)))
     transition: filter 1600ms ease-in-out
 //   background-position: fi
-body.loaded
+body.ash_loaded
     // transition: background 1456ms cubic-bezier(.77,0,.18,1)
     transition: background 1456ms cubic-bezier(.77,0,.18,1)
     --e: 0

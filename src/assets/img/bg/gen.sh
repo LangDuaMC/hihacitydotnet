@@ -1,0 +1,1 @@
+magick convert -crop 100%x25% ./prl.png -depth 8 -strip atl.png
