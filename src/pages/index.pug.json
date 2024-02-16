@@ -1,3 +1,24 @@
 {
-  "title": "Trang Chủ"
+  "title": "Trang Chủ",
+  "links": [
+    {
+      "label": "discord",
+      "href": "https://discord.gg/hihacity"
+    },
+    {
+      "label": "facebook",
+      "href": "#",
+      "disabled": true
+    },
+    {
+      "label": "satellite",
+      "href": "#",
+      "disabled": true
+    },
+    {
+      "label": "punishments",
+      "href": "https://fb.me",
+      "disabled": true
+    }
+  ]
 }

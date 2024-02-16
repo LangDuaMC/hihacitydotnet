@@ -3,10 +3,21 @@ block body
     section#pg_index.hero
         a(href="/")
             img(src="/src/assets/img/brand.png", alt="", srcset="")
-        section 
+        section.inf
             div 
                 span#ip hihacity.net
                 div 
                     span#stus •
                     span.pc Soon
             button(data-report-entity="copy")
+        section.act
+            for i in links
+                a(href=i.href)
+                    button(data-key=i.label, data-disabled=i.disabled)
+        footer
+            span
+                | Made with ❤️
+                //- i.heart
+                | &nbsp;by 
+                a(href="https://stdpi.work") stdpi
+        

@@ -1,0 +1,1 @@
+magick montage ./icon/*.png -geometry +0+0 -tile 1x -background transparent icons.png

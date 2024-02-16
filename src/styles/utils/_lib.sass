@@ -1,7 +1,14 @@
 $dep: 6px
 
+@import _icn
+
+@font-face 
+    font-family: "FVF Fernado 08"
+    src: url(https://cdn.langdua.net/assets/fonts/fvf_fernado_08.woff2), url(https://cdn.langdua.net/assets/fonts/fvf_fernado_08.ttf)
+
 .pixel
     image-rendering: pixelated
+    font-family: "FVF Fernado 08"
 
 @mixin inp()
     border: none!important
@@ -19,3 +26,6 @@ $dep: 6px
 .flexv
     display: flex
     align-items: center
+
+.common_shadow
+    text-shadow: 2px 2px 1px #000

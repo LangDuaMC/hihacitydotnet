@@ -1,46 +1,73 @@
 @import _lib
 
+@mixin button($color,$i)
+    padding: 20px 23px
+    &[data-disabled]
+        filter: saturate(10%)
+    @include icn($i)
+    @include stlc($color, 0)
+    @include inp()
+
 .hero
     width: 100%
     min-height: 100vh
     flex-direction: column
     justify-content: center
+    & h1,& h2,& h3,& h4,& h5,& h6
+        color: white
+        margin: 0
+        @extend .common_shadow
+    & h1
+        font-size: 3em
     @extend .flexv
-    &>a
-        &>img
-            width: 50vw
-            box-shadow: 0
-            @media only screen and (max-width: 600px) 
-                width: 90vw
-            @extend .pixel
-    &>section
-        background: transparent
-        color: #000
-        // $ic: #555
-        // border-top: 2px solid $ic
-        // border-bottom: 2px solid $ic
-        // border-left: 2px solid $ic
-        // border-radius: 2px
-        @extend .flexv
-        &>div
-            &>#ip
-                background: transparent
-                margin: 0 15px
-                user-select: all
-                @include inp()
+    &#pg_index
+        &>a
+            &>img
+                width: 50vw
+                box-shadow: 0
+                @extend .pixel
+                @media only screen and (max-width: 600px)
+                    width: 90vw
+        &>section.inf
+            background: transparent
+            color: #000
+            // $ic: #555
+            // border-top: 2px solid $ic
+            // border-bottom: 2px solid $ic
+            // border-left: 2px solid $ic
+            // border-radius: 2px
+            @extend .flexv
             &>div
                 @extend .flexv
-                &>#stus
-                    font-size: 28px
-                &>span.pc
-                    margin: 0 4px
-            padding-right: 8px
-            @extend .flexv  
-            @include stlc(#ffffff, 0)
-        &>button
-            background: no-repeat url("/src/assets/img/copy.png") center center
-            background-size: 16px
-            padding: 20px 23px
-            @include stlc(#2b2bdf, 0)
-            @include inp()
-            @extend .pixel
+                &>#ip
+                    background: transparent
+                    margin: 0 15px
+                    user-select: all
+                    @include inp()
+                &>div
+                    @extend .flexv
+                    &>#stus
+                        font-size: 28px
+                    &>span.pc
+                        margin: 0 4px
+                        padding-right: 8px
+                        @extend .flexv
+                @include stlc(#ffffff, 0)
+            &>button
+                @include button(#2b2bdf,5)
+        &>section.act
+            margin-top: 5px
+            display: flex
+            &>a>button
+                &[data-key="discord"]
+                    @include button(#7289DA,1)
+                &[data-key="facebook"]
+                    @include button(#4267B2,2)
+                &[data-key="satellite"]
+                    @include button(#4394e5,3)
+                &[data-key="punishments"]
+                    @include button(#313b72,0)
+    &>footer
+        color: white
+        @extend .common_shadow
+        @extend .pixel

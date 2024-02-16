@@ -1,0 +1,33 @@
+$noi: 7
+$disp: 32px
+
+.icon
+    background-image: url("/src/assets/img/icons.png")
+    background-repeat: no-repeat
+@mixin cabs($s)
+    $axis: -$s
+    $et: calc(100% - $s)
+    width: $et
+    height: $et
+    $su: #{$s * 0.5}
+    top: $su
+    left: $su
+    background-size: 100% calc(100% * $noi)
+
+.abs_overlay
+    content: ""
+    position: absolute
+
+@mixin icn($i)
+    &::after
+        background-position: center top #{-$i * 32px}
+        @include cabs(8px)
+        @extend .abs_overlay
+        @extend .pixel
+        @extend .icon
+
+i.heart
+    &::after
+        position: absolute
+        content: url("/src/assets/img/heart.png")
+        width: 32px

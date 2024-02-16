@@ -2,13 +2,12 @@ import vituum from "vituum";
 import pug from "@vituum/vite-plugin-pug";
 import pkg from "./package.json";
 import { Alias, defineConfig } from "vite";
-import AssetsUploader from "./src/core/plugin/AssetsUploader"
-import { compression } from 'vite-plugin-compression2'
+import AssetsUploader from "./src/core/plugin/AssetsUploader";
+import { compression } from "vite-plugin-compression2";
+import { ZlibOptions } from "zlib";
 
 const isDev = process.env.NODE_ENV !== "production";
-const noCDN = Boolean(
-  process.env.VITE_NOCDN
-);
+const noCDN = Boolean(process.env.VITE_NOCDN);
 
 const str = ["DEV Mode", "Force local deps"];
 [isDev, noCDN].map((i, _b) => console.info(`${i ? "T" : "F"}  ${str[_b]}`));
@@ -38,12 +37,22 @@ export default defineConfig({
     pug({
       root: "./src",
     }),
-    compression(),
-    AssetsUploader()
+    compression({
+      skipIfLargerOrEqual: false,
+      exclude: [/\.(br)$/, /\.(gz)$/, /\.(html)$/],
+      compressionOptions: {
+        gzip: {
+          level: 9,
+          strategy: 3
+        } as ZlibOptions,
+      },
+    }),
+    AssetsUploader(),
   ],
   build: {
     // sourcemap: "inline",
     // outDir: "./dist/client",
+    cssMinify: "lightningcss",
     rollupOptions: {
       // external: ["node_modules/react-dom/server"],
     },
