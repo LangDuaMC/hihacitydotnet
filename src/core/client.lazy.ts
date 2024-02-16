@@ -1,5 +1,6 @@
 import Plausible from "plausible-tracker";
 import config from "./config";
+import pj from "../../package.json";
 
 const k = (function anyDispatchInit() {
   const events = {
@@ -10,9 +11,16 @@ const k = (function anyDispatchInit() {
       (function OnlyProduction() {
         const { trackPageview, trackEvent } = Plausible({
           domain: config.hostname,
-          ...config.plausible
+          ...config.plausible,
         });
-        trackPageview();
+        trackPageview(
+          {},
+          {
+            props: {
+              version: pj.version,
+            },
+          }
+        );
         events.TrackedMouseDispatch = function TrackedMouseDispatch(
           reportName: string
         ) {

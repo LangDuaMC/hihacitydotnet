@@ -19,7 +19,7 @@ $dep: 6px
     box-shadow: 0 $dep $shd
     transform: translateY(-#{$dep - $dep * $o})
     background-color: $c
-    &:is(button):active
+    &:not(button[data-disabled]):is(button):active
         box-shadow: 0 0 $shd
         transform: translateY(#{0px + $dep * $o})
 
