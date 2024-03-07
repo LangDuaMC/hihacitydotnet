@@ -15,7 +15,7 @@ export default {
 	shama: {
 		version: 1, 
 		baseUrl: import.meta.env.PROD
-			? "https://api.langdua.net/rpc/shama"
+			? "https://api.langdua.net/api/shama"
 			: `http://localhost:${import.meta.env.VITE_RPC || "8880"}`,
 	},
 	anim,
