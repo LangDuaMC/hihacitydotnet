@@ -1,0 +1,9 @@
+[
+  {
+    "Sheet": [0, 0.0004],
+		"Sheet.Name": "bob",
+    "Sheet.Threshold": 1366.0,
+    "Sheet.ApplyTarget": "document_body",
+    "Sheet.ApplyAttribute": "e"
+  }
+]

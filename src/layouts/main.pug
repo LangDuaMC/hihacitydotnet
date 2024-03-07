@@ -6,6 +6,9 @@ html
         link(rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png')
         link(rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png')
         title HihaCity | #{title}
-        script(type="module", src="/src/main.ts")
+        if script
+            script(type="module", src="/src/#{script}.ts")
+        else
+            script(type="module", src="/src/main.ts")
     body 
         block body

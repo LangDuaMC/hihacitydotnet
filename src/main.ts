@@ -5,6 +5,8 @@ import { LoadAnimation } from "./core/animator";
  * -= hihacity website =-
  *
  * Damn I spent a lot of time to cook the effect
+ * 
+ * feat 07/03/2023: api and posthog
  *
  * @author stdpi
  */
