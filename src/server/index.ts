@@ -9,10 +9,10 @@ const app = new Elysia()
 	.get("/", () => ({
 		msg: "Hello World!",
 	}))
-	.options(
+	.head(
 		"/rpc/presence",
 		({ body: { version: ver }, set }) => {
-			if (ver.shama !== config.shama.version || ver.data !== version) {
+			if (ver.shama !== config.shama.version || ver.package !== version) {
 				set.status = "Failed Dependency";
 				return {
 					msg: "proto might be outdated.",
@@ -32,7 +32,7 @@ const app = new Elysia()
 			body: t.Object({
 				version: t.Object({
 					shama: t.Integer(),
-					data: t.String(),
+					package: t.String(),
 				}),
 			}),
 		},

@@ -3,6 +3,7 @@ import posthog from "posthog-js";
 
 import config from "./config";
 import pj from "../../package.json";
+import eden from "./eden";
 
 posthog.init(...config.posthog);
 
@@ -41,6 +42,12 @@ const k = (function anyDispatchInit() {
 				};
 			})();
 	else console.info("Lazy thread won't track you as youre in development");
+	eden.rpc.presence.head({
+		version: {
+			shama: config.shama.version,
+			package: pj.version,
+		},
+	});
 	return events;
 })();
 
