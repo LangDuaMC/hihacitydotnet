@@ -1,11 +1,11 @@
 import Plausible from "plausible-tracker";
-import posthog from "posthog-js";
+//import posthog from "posthog-js";
 
 import config from "./config";
 import pj from "../../package.json";
-import eden from "./eden";
+//import eden from "./eden";
 
-posthog.init(...config.posthog);
+//posthog.init(...config.posthog);
 
 const k = (function anyDispatchInit() {
 	const events = {
@@ -22,7 +22,7 @@ const k = (function anyDispatchInit() {
 						version: pj.version,
 					};
 
-				posthog.capture("$pageview", viewProps);
+				//posthog.capture("$pageview", viewProps);
 				trackPageview(
 					{},
 					{
@@ -37,17 +37,17 @@ const k = (function anyDispatchInit() {
 							entity: reportName,
 						},
 					};
-					posthog.capture("click", sendableProps);
+					//posthog.capture("click", sendableProps);
 					trackEvent("click", sendableProps);
 				};
 			})();
 	else console.info("Lazy thread won't track you as youre in development");
-	eden.rpc.presence.head({
-		version: {
-			shama: config.shama.version,
-			package: pj.version,
-		},
-	});
+	// eden.rpc.presence.head({
+	// 	version: {
+	// 		shama: config.shama.version,
+	//		package: pj.version,
+	//	},
+	//});
 	return events;
 })();
 
